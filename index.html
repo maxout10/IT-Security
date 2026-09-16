@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enczapikeytd — Email Security & Deliverability</title>
+  <meta name="description" content="Enczapikeytd — email deliverability, authentication, and security specialist. Helping teams land in the inbox, not the spam folder.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0f1115;
+      --bg-alt: #161a22;
+      --card: #1c212c;
+      --border: #262c3a;
+      --text: #e8ecf3;
+      --muted: #97a1b4;
+      --accent: #4f8cff;
+      --accent-soft: rgba(79, 140, 255, 0.12);
+      --success: #3ecf8e;
+      --radius: 14px;
+      --max: 1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(15, 17, 21, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--success);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a { color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--success);
+      background: rgba(62, 207, 142, 0.1);
+      border: 1px solid rgba(62, 207, 142, 0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 40px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      max-width: 780px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #4f8cff, #7ab0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #3f7de6; text-decoration: none; }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    @media (max-width: 800px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .about-grid p { color: var(--muted); margin-bottom: 1rem; }
+    .about-grid p:last-child { margin-bottom: 0; }
+
+    .info-list {
+      list-style: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 0;
+      font-size: 0.92rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-list li:last-child { border-bottom: none; }
+
+    .info-list i { color: var(--accent); width: 18px; text-align: center; }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .skill-card i {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card p { font-size: 0.88rem; color: var(--muted); }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: transform 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .project .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .project h3 {
+      font-size: 1.08rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .project p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .contact-box h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-box p { color: var(--muted); margin-bottom: 1.75rem; }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer .safe {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--success);
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <span class="dot"></span>
+          Enczapikeytd
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="tag">
+        <i class="fas fa-circle-check"></i> Enczapikeytd · Available for new projects
+      </div>
+      <h1>
+        Enczapikeytd helps teams <span>land in the inbox</span> — not the spam folder.
+      </h1>
+      <p>
+        Email deliverability, authentication, and security specialists. We keep
+        transactional and marketing mail safe, compliant, and trusted by major
+        mailbox providers.
+      </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">
+          <i class="fas fa-folder-open"></i> View our work
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <i class="fas fa-envelope"></i> Get in touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Who we are</h2>
+      <div class="about-grid">
+        <div>
+          <p>
+            Enczapikeytd is an email infrastructure studio focused on deliverability,
+            authentication, and security. We work with SaaS companies, agencies, and
+            e-commerce brands to fix the problems that quietly cost them revenue —
+            spam placement, blocklisting, spoofing, and compliance gaps.
+          </p>
+          <p>
+            From SPF, DKIM, and DMARC setup to IP warm-up, blocklist removal, and
+            inbox placement monitoring, we cover the full stack of modern email
+            sending. We also help teams meet Gmail, Yahoo, and Microsoft's bulk
+            sender requirements ahead of enforcement deadlines.
+          </p>
+          <p>
+            Every engagement is documented, measured, and reported — you'll always
+            know what was changed and why.
+          </p>
+        </div>
+        <ul class="info-list">
+          <li><i class="fas fa-location-dot"></i> London, United Kingdom</li>
+          <li><i class="fas fa-briefcase"></i> 7+ years experience</li>
+          <li><i class="fas fa-code"></i> Python, Postfix, PowerDMARC</li>
+          <li><i class="fas fa-globe"></i> Remote-friendly worldwide</li>
+          <li><i class="fas fa-clock"></i> Response within 1 business day</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS / SERVICES -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">What we do</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fas fa-shield-halved"></i>
+          <h3>Email Authentication</h3>
+          <p>SPF, DKIM, DMARC, BIMI, MTA-STS and TLS-RPT setup and troubleshooting.</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-inbox"></i>
+          <h3>Inbox Placement</h3>
+          <p>Seed testing, blocklist monitoring, and reputation management across major providers.</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-server"></i>
+          <h3>Infrastructure</h3>
+          <p>Postfix, PowerMTA, Amazon SES, SendGrid, and custom SMTP relays.</p>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-bug"></i>
+          <h3>Security Audits</h3>
+          <p>Domain spoofing prevention, header analysis, and phishing-resilient sending setups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="container">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Selected work</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <div class="icon"><i class="fas fa-envelope-circle-check"></i></div>
+          <h3>SaaS Deliverability Rescue</h3>
+          <p>Recovered a fintech client from 40% spam placement to 98% inbox placement in six weeks through domain re-warming, DKIM rotation, and list segmentation.</p>
+          <div class="tags">
+            <span class="tag">DMARC</span>
+            <span class="tag">SES</span>
+            <span class="tag">Reputation</span>
+          </div>
+        </div>
+        <div class="project">
+          <div class="icon"><i class="fas fa-lock"></i></div>
+          <h3>Domain Spoofing Prevention</h3>
+          <p>Implemented strict DMARC (p=reject), MTA-STS, and BIMI for a public-sector client, eliminating impersonation attempts across 12 sending domains.</p>
+          <div class="tags">
+            <span class="tag">DMARC</span>
+            <span class="tag">BIMI</span>
+            <span class="tag">MTA-STS</span>
+          </div>
+        </div>
+        <div class="project">
+          <div class="icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Transactional Mail Migration</h3>
+          <p>Led a migration from on-prem Postfix to Amazon SES for a marketplace sending 4M+ emails per month, with zero downtime and full authentication coverage.</p>
+          <div class="tags">
+            <span class="tag">Postfix</span>
+            <span class="tag">AWS SES</span>
+            <span class="tag">Migration</span>
+          </div>
+        </div>
+        <div class="project">
+          <div class="icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <h3>Blocklist Recovery</h3>
+          <p>Removed a client from Spamhaus, Barracuda, and Microsoft blocklists after identifying a compromised form on their site that was being abused for spam.</p>
+          <div class="tags">
+            <span class="tag">Spamhaus</span>
+            <span class="tag">Abuse</span>
+            <span class="tag">Remediation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="border-bottom: none;">
+    <div class="container">
+      <div class="contact-box">
+        <h3>Let's work together</h3>
+        <p>Have a deliverability problem, a security audit, or a migration you'd like a second opinion on? Reach out to Enczapikeytd.</p>
+        <div class="contact-links">
+          <a href="mailto:hello@enczapikeytd.com" class="btn btn-primary">
+            <i class="fas fa-envelope"></i> hello@enczapikeytd.com
+          </a>
+          <a href="https://linkedin.com" class="btn btn-ghost" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com" class="btn btn-ghost" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="safe">
+        <i class="fas fa-circle-check"></i> Verified portfolio · no login required
+      </div>
+      <div>© 2025 Enczapikeytd. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
